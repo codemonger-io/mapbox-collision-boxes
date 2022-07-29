@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "rollup -c",
+    "build": "rollup -c && api-extractor run --local",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,6 +14,7 @@
   "author": "Kikuo Emoto <kemoto@codemonger.io>",
   "license": "MIT",
   "devDependencies": {
+    "@microsoft/api-extractor": "^7.28.6",
     "@rollup/plugin-typescript": "^8.3.4",
     "rollup": "^2.77.2",
     "tslib": "^2.4.0",
