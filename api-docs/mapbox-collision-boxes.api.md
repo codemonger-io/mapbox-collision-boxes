@@ -4,8 +4,19 @@
 
 ```ts
 
+import { Map as Map_2 } from 'mapbox-gl';
+import { MapboxGeoJSONFeature } from 'mapbox-gl';
+
 // @beta
-export function collision(): number;
+export function collectCollisionBoxesAndFeatures(map: Map_2, layerId: string): Promise<FeatureBox[]>;
+
+// @beta
+export interface FeatureBox {
+    // Warning: (ae-forgotten-export) The symbol "Box" needs to be exported by the entry point index.d.ts
+    box: Box;
+    // Warning: (ae-forgotten-export) The symbol "QueryFeature" needs to be exported by the entry point index.d.ts
+    feature: QueryFeature;
+}
 
 // (No @packageDocumentation comment for this package)
 
