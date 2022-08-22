@@ -21,8 +21,10 @@
   "author": "Kikuo Emoto <kemoto@codemonger.io>",
   "license": "MIT",
   "devDependencies": {
+    "@mapbox/unitbezier": "^0.0.1",
     "@microsoft/api-extractor": "^7.28.6",
     "@rollup/plugin-typescript": "^8.3.4",
+    "@types/geojson": "^7946.0.10",
     "@types/mapbox-gl": "^2.7.5",
     "mapbox-gl": "^2.9.2",
     "rollup": "^2.77.2",
@@ -30,6 +32,6 @@
     "typescript": "^4.7.4"
   },
   "peerDependencies": {
-    "mapbox-gl": ">=1.0"
+    "mapbox-gl": ">= 2 < 3"
   }
 }
