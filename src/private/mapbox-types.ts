@@ -47,6 +47,7 @@ export interface Placement {
   projection: string;
   transform: Transform;
   collisionIndex: CollisionIndex;
+  stale: boolean;
   retainedQueryData: {[bucketInstanceId: number]: RetainedQueryData};
 }
 

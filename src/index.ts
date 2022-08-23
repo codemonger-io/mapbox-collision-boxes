@@ -9,6 +9,7 @@ import { Map } from 'mapbox-gl';
 
 import { calculateCollisionBox } from './private/collision-index';
 import { EXTENT, isSymbolBucket } from './private/mapbox-types';
+import { waitForPlacement } from './private/placement';
 import {
   getSymbolPlacementTileProjectionMatrix,
 } from './private/projection-util';
@@ -16,8 +17,16 @@ import { evaluateSizeForZoom } from './private/symbol-size';
 import { Box, FeatureBox } from './types';
 export { Box, FeatureBox } from './types';
 
+// placement timeout in milliseconds.
+const PLACEMENT_TIMEOUT_IN_MS = 5000;
+
 /**
  * Collects collision boxes on a given Mapbox map layer.
+ *
+ * @remarks
+ *
+ * This function waits until the last symbol placement finishes.
+ * The wait times out after five seconds.
  *
  * @param map -
  *
@@ -51,6 +60,7 @@ export async function collectCollisionBoxesAndFeatures(
   if (layer.type !== 'symbol') {
     throw new RangeError(`layer "${layerId}" is not a symbol layer`);
   }
+  await waitForPlacement(placement, PLACEMENT_TIMEOUT_IN_MS);
   const sourceCache = style._getLayerSourceCache(layer);
   if (sourceCache == null) {
     throw new Error(`no SourceCache available`);
@@ -133,7 +143,7 @@ export async function collectCollisionBoxesAndFeatures(
  *
  *   Another box to be tested.
  *
- * @return
+ * @returns
  *
  *   Whether `box1` and `box2` intersect.
  *
