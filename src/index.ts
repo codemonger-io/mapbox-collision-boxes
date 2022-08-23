@@ -1,3 +1,10 @@
+/**
+ * Utility for
+ * {@link https://docs.mapbox.com/mapbox-gl-js/guides/|Mapbox GL JS}.
+ *
+ * @beta
+ */
+
 import { Map } from 'mapbox-gl';
 
 import { calculateCollisionBox } from './private/collision-index';
@@ -6,8 +13,8 @@ import {
   getSymbolPlacementTileProjectionMatrix,
 } from './private/projection-util';
 import { evaluateSizeForZoom } from './private/symbol-size';
-import { FeatureBox } from './types';
-export { FeatureBox } from './types';
+import { Box, FeatureBox } from './types';
+export { Box, FeatureBox } from './types';
 
 /**
  * Collects collision boxes on a given Mapbox map layer.
@@ -113,4 +120,28 @@ export async function collectCollisionBoxesAndFeatures(
     }
   }
   return collisionBoxesWithFeature;
+}
+
+/**
+ * Returns if two `Box`es intersect.
+ *
+ * @param box1 -
+ *
+ *   Box to be tested.
+ *
+ * @param box2 -
+ *
+ *   Another box to be tested.
+ *
+ * @return
+ *
+ *   Whether `box1` and `box2` intersect.
+ *
+ * @beta
+ */
+export function boxesIntersect(box1: Box, box2: Box): boolean {
+  return box1.tlX < box2.brX &&
+    box1.tlY < box2.brY &&
+    box2.tlX < box1.brX &&
+    box2.tlY < box1.brY;
 }
