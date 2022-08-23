@@ -71,9 +71,9 @@ export function calculateCollisionBox(
   const tlY =
     (box.y1 * scale + shift.y - box.padding) * tileToViewport + screenY;
   const brX =
-    (box.x2 * scale + shift.x - box.padding) * tileToViewport + screenX;
+    (box.x2 * scale + shift.x + box.padding) * tileToViewport + screenX;
   const brY =
-    (box.y2 * scale + shift.y - box.padding) * tileToViewport + screenY;
+    (box.y2 * scale + shift.y + box.padding) * tileToViewport + screenY;
   return {
     tlX,
     tlY,
