@@ -1,3 +1,5 @@
+English / [日本語](./README_ja.md)
+
 # Example for Mapbox Collision Boxes
 
 A simple [Vue 3](https://vuejs.org) app to demonstrate `mapbox-collision-boxes`.

@@ -1,3 +1,5 @@
+English / [日本語](./README_ja.md)
+
 # Mapbox Collision Boxes
 
 A utility library for [Mapbox GL JS (`mapbox-gl`)](https://docs.mapbox.com/mapbox-gl-js/guides/), that calculates collision boxes of symbols on a Mapbox map in the screen coordinate.
@@ -45,13 +47,13 @@ You can find a complete project in the [`example`](./example) folder.
 
 I have been developing an app that shows custom symbols on a map using [symbol layers](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#symbol) of `mapbox-gl`.
 When symbols overlap on the screen, `mapbox-gl` shows only the first one and hides other overlapping ones.
-As far as I know, there is no `mapbox-gl` API to get symbols hidden by a specific symbol on the screen\*.
+As far as I know, there is no `mapbox-gl` API to get symbols hidden by a specific symbol on the screen.
 This is not convenient for my app because it wants to list all the symbols including hidden ones at a clicked point.
 Although there is an [option](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout-symbol-icon-allow-overlap) that makes `mapbox-gl` skip collision detection and show every single symbol on the screen, this will make the map too busy if there are many overlapping symbols.
 
 So I decided to **develop a library that can aggregate symbols overlapping with a specific symbol on a Mapbox map**.
 
-Please refer to my [blog post](https://codemonger.io/blog/0009-mapbox-collision-boxes/) for more details.
+Please refer to [my blog post](https://codemonger.io/blog/0009-mapbox-collision-boxes/) for more details.
 
 ## API Documentation
 
@@ -61,7 +63,7 @@ Please refer to [`api-docs/markdown/index.md`](./api-docs/markdown/index.md).
 
 ### Viewport padding
 
-Collision boxes collected by `collectCollisionBoxesAndFeatures` include constant offsets.
+Collision boxes collected by [`collectCollisionBoxesAndFeatures`](./api-docs/markdown/mapbox-collision-boxes.collectcollisionboxesandfeatures.md) include constant offsets.
 They have the actual screen position + `100`\* along both the x- and y-axes.
 Since the offsets do not matter to hit tests among collision boxes, this library leaves them to avoid unnecessary calculation.
 If you want to project collision boxes to the actuall screen, you have to subtract `100` from their x- and y-axis values.
