@@ -72,6 +72,10 @@ export async function collectCollisionBoxesAndFeatures(
   const collisionBoxesWithFeature = [];
   for (const tile of layerTiles) {
     const bucket = tile.getBucket(layer);
+    if (bucket == null) {
+      // tile may not contain any symbols
+      continue;
+    }
     if (!isSymbolBucket(bucket)) {
       console.warn(`layer "${layerId}" must be associated with a SymbolBucket`);
       continue;
