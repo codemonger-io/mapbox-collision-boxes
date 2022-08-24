@@ -45,15 +45,15 @@ const map.on('click', layerId, async event => {
 
 ## 動機
 
-私はマップ上に`mapbox-gl`の[Symbol Layer](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#symbol)を使ってカスタムシンボルを表示するアプリを開発中です。
-画面上でシンボルが被ると、`mapbox-gl`は最初のものだけ表示し、他の重なるものは隠してしまいます。
+私はマップ上に`mapbox-gl`の[Symbol Layer](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#symbol)を使ってカスタムシンボルを表示するアプリを開発しています。
+`mapbox-gl`は画面上でシンボルが被ると最初のものだけ表示し、他の重なるものは隠してしまいます。
 私の知る限り、`mapbox-gl`には画面上で特定のシンボルによって隠されているシンボルを取得するAPIはありません。
 開発中のアプリでは非表示のものも含めてクリックされたポイントにあるすべてのシンボルをリストしたいので、これでは不都合です。
 `mapbox-gl`に衝突検出をスキップさせてすべてのシンボルを画面に表示させる[オプション](https://docs.mapbox.com/mapbox-gl-js/style-spec/layers/#layout-symbol-icon-allow-overlap)はありますが、重なるシンボルがたくさんある場合は画面がごちゃごちゃし過ぎてしまいます。
 
 ということで**Mapboxマップ上で特定のシンボルと重なるシンボルを集めることのできるライブラリを開発**することにしました。
 
-詳しくは[私のブログ投稿](https://codemonger.io/blog/0009-mapbox-collision-boxes/)をご覧ください。
+より詳しくは[私のブログ投稿](https://codemonger.io/blog/0009-mapbox-collision-boxes/)をご覧ください。
 
 ## APIドキュメント
 

@@ -18,7 +18,7 @@
 
 [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)はマップデータをダウンロードするために[アクセストークン](https://docs.mapbox.com/help/getting-started/access-tokens/)を要求します。
 アクセストークンはこのレポジトリに含まれていませんので、自身で作成しなければなりません。
-[「Mapboxアクセストークンを設定する」](#Mapboxアクセストークンを設定する)をご確認ください。
+[「Mapboxアクセストークンを設定する」](#Mapboxアクセストークンを設定する)もご確認ください。
 
 ### Mapboxアクセストークンを設定する
 

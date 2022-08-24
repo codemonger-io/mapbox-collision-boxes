@@ -66,6 +66,6 @@ Please refer to [`api-docs/markdown/index.md`](./api-docs/markdown/index.md).
 Collision boxes collected by [`collectCollisionBoxesAndFeatures`](./api-docs/markdown/mapbox-collision-boxes.collectcollisionboxesandfeatures.md) include constant offsets.
 They have the actual screen position + `100`\* along both the x- and y-axes.
 Since the offsets do not matter to hit tests among collision boxes, this library leaves them to avoid unnecessary calculation.
-If you want to project collision boxes to the actuall screen, you have to subtract `100` from their x- and y-axis values.
+If you want to project collision boxes to the actual screen, you have to subtract `100` from their x- and y-axis values.
 
 \* This constant is defined as `viewportPadding` at https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 which is not exported from `mapbox-gl`.
