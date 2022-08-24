@@ -28,6 +28,4 @@ export interface FeatureBox {
     feature: QueryFeature;
 }
 
-// (No @packageDocumentation comment for this package)
-
 ```

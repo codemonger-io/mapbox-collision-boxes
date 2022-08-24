@@ -53,6 +53,10 @@ So I decided to **develop a library that can aggregate symbols overlapping with 
 
 Please refer to my [blog post](https://codemonger.io/blog/0009-mapbox-collision-boxes/) for more details.
 
+## API Documentation
+
+Please refer to [`api-docs/markdown/index.md`](./api-docs/markdown/index.md).
+
 ## Tips
 
 ### Viewport padding
