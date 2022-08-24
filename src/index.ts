@@ -1,6 +1,8 @@
 /**
- * Utility for
+ * Collision box utility for
  * {@link https://docs.mapbox.com/mapbox-gl-js/guides/|Mapbox GL JS}.
+ *
+ * @packageDocumentation
  *
  * @beta
  */
@@ -30,11 +32,16 @@ const PLACEMENT_TIMEOUT_IN_MS = 5000;
  *
  * @param map -
  *
- *   Mapbox map instance.
+ *   {@link https://docs.mapbox.com/mapbox-gl-js/api/map/|Mapbox map} instance.
  *
  * @param layerId -
  *
  *   ID of the layer where collision boxes are to be collected.
+ *
+ * @returns
+ *
+ *   Collision boxes and features on the layer associated with `layerId` on
+ *   `map`.
  *
  * @throws RangeError
  *

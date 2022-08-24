@@ -24,7 +24,14 @@ export interface Box {
 export interface FeatureBox {
   /** Box of the feature. */
   box: Box;
-  /** Feature. */
+  /**
+   * Feature.
+   *
+   * @remarks
+   *
+   * Contains similar information you can get with
+   * {@link https://docs.mapbox.com/mapbox-gl-js/api/map/#map#queryrenderedfeatures|Map#queryRenderedFeatures}.
+   */
   feature: QueryFeature;
 }
 
@@ -33,7 +40,8 @@ export interface FeatureBox {
  *
  * @remarks
  *
- * `QueryFeature` is defined in https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/util/vectortile_to_geojson.js#L6-L9
+ * `QueryFeature` is defined in
+ * {@link https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/util/vectortile_to_geojson.js#L6-L9}
  *
  * `QueryFeature` is exported as `MapboxGeoJSONFeature` from `@types/mapbox-gl`.
  *
