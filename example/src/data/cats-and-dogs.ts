@@ -1,5 +1,4 @@
-import { LngLat } from 'mapbox-gl';
-import { Feature, FeatureCollection } from 'geojson';
+import type { Feature, FeatureCollection } from 'geojson';
 
 /**
  * Randomly generates cats and dogs around a given point.
@@ -13,16 +12,16 @@ import { Feature, FeatureCollection } from 'geojson';
  *   How many cats and dogs are generated in total.
  */
 export function generateCatsAndDogs(
-  center: LngLat,
+  center: { lng: number, lat: number },
   count: number,
 ): FeatureCollection {
-  const spread = 0.015; // lon / lat ± spread
+  const spread = 0.015; // lng / lat ± spread
   const randomSpread = () => (Math.random() - 0.5) * 2 * spread;
   const catOrDog = () => Math.random() >= 0.5 ? 'cat' : 'dog';
   const features: Feature[] = [];
   for (let i = 0; i < count; ++i) {
     const coordinates = [
-      center.lon + randomSpread(),
+      center.lng + randomSpread(),
       center.lat + randomSpread(),
     ];
     features.push({

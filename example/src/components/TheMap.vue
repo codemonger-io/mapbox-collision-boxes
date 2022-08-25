@@ -14,7 +14,7 @@
 import { ref, onMounted } from 'vue';
 import mapboxgl from 'mapbox-gl';
 import {
-  FeatureBox,
+  type FeatureBox,
   boxesIntersect,
   collectCollisionBoxesAndFeatures,
 } from 'mapbox-collision-boxes';
@@ -28,20 +28,24 @@ import { loadAndAddImages } from '../utils/load-and-add-images';
 import TheOverlay from './TheOverlay.vue';
 
 const catsAndDogsData = generateCatsAndDogs(
-  { lon: 139.7671, lat: 35.6812 }, // Tokyo station
+  { lng: 139.7671, lat: 35.6812 }, // Tokyo station
   200, // 200 cats and dogs
 );
 
-const mapContainer = ref<HTMLElement>(null);
+const mapContainer = ref<HTMLElement | undefined>();
 
-const selectedFeature = ref<FeatureBox>(null);
+const selectedFeature = ref<FeatureBox | undefined>();
 const hiddenFeatures = ref<FeatureBox[]>([]);
 function resetFeatures() {
-  selectedFeature.value = null;
+  selectedFeature.value = undefined;
   hiddenFeatures.value = [];
 }
 
 onMounted(() => {
+  if (mapContainer.value == null) {
+    console.error('mapContainer is not bound');
+    return;
+  }
   mapboxgl.accessToken = MAPBOX_ACCESS_TOKEN;
   const map = new mapboxgl.Map({
     container: mapContainer.value,
@@ -71,11 +75,19 @@ onMounted(() => {
     });
     const layerId = 'cats-and-dogs';
     map.on('click', layerId, async e => {
+      if (e.features == null) {
+        console.error('no features are associated with the click event', e);
+        return;
+      }
       const clickedFeatureId = e.features[0].id;
       const collisionBoxes =
         await collectCollisionBoxesAndFeatures(map, layerId);
       const clickedBox =
         collisionBoxes.find(box => box.feature.id === clickedFeatureId);
+      if (clickedBox == null) {
+        console.error('box of the clicked symbol is not found');
+        return;
+      }
       console.log('clicked box', clickedBox);
       selectedFeature.value = clickedBox;
       const intersectingBoxes = collisionBoxes.filter(

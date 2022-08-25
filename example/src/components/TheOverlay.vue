@@ -30,7 +30,7 @@
       <section v-if="selectedFeature != null">
         <h5 class="title-selected">Selected</h5>
         <p>
-          {{selectedFeature.feature.properties.type}}
+          {{selectedFeature.feature.properties?.type}}
           (ID={{selectedFeature.feature.id}})
         </p>
       </section>
@@ -40,7 +40,7 @@
           v-for="feature in hiddenFeatures"
           :key="`hidden-feature-${feature.feature.id}`"
         >
-          {{feature.feature.properties.type}}
+          {{feature.feature.properties?.type}}
           (ID={{feature.feature.id}})
         </p>
       </section>
@@ -50,7 +50,7 @@
 
 <script lang="ts" setup>
 import { computed, ref, onBeforeUnmount, onMounted } from 'vue';
-import { FeatureBox } from 'mapbox-collision-boxes';
+import type { FeatureBox } from 'mapbox-collision-boxes';
 
 // https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50
 const viewportPadding = 100;
@@ -60,15 +60,15 @@ const props = defineProps<{
   hiddenFeatures: FeatureBox[],
 }>();
 
-const container = ref<HTMLElement>(null);
+const container = ref<HTMLElement | undefined>();
 
 onMounted(() => {
-  container.value.addEventListener('resize', onResize);
+  container.value?.addEventListener('resize', onResize);
   updateSize();
 });
 
 onBeforeUnmount(() => {
-  container.value.removeEventListener('resize', onResize);
+  container.value?.removeEventListener('resize', onResize);
 });
 
 function onResize() {
@@ -79,6 +79,10 @@ const width = ref(300);
 const height = ref(200);
 
 function updateSize() {
+  if (container.value == null) {
+    console.error('TheOverlay', 'no container exists');
+    return;
+  }
   const clientRect = container.value.getBoundingClientRect();
   width.value = clientRect.width;
   height.value = clientRect.height;
