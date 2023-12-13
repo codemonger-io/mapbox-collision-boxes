@@ -12,7 +12,7 @@
   "scripts": {
     "build": "rollup -c && api-extractor run --local",
     "build:doc": "npm run build && api-documenter markdown --input-folder temp --output-folder api-docs/markdown",
-    "tsc": "tsc",
+    "type-check": "tsc --noEmit",
     "prepare": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -23,17 +23,17 @@
   "license": "MIT",
   "devDependencies": {
     "@mapbox/unitbezier": "^0.0.1",
-    "@microsoft/api-documenter": "^7.19.7",
-    "@microsoft/api-extractor": "^7.28.6",
-    "@rollup/plugin-typescript": "^8.3.4",
-    "@types/geojson": "^7946.0.10",
-    "@types/mapbox-gl": "^2.7.5",
-    "mapbox-gl": "^2.9.2",
-    "rollup": "^2.77.2",
-    "tslib": "^2.4.0",
-    "typescript": "^4.7.4"
+    "@microsoft/api-documenter": "^7.23.14",
+    "@microsoft/api-extractor": "^7.38.5",
+    "@rollup/plugin-typescript": "^8.5.0",
+    "@types/geojson": "^7946.0.13",
+    "@types/mapbox-gl": "^2.7.19",
+    "mapbox-gl": "^3.0.1",
+    "rollup": "^2.79.1",
+    "tslib": "^2.6.2",
+    "typescript": "^4.9.5"
   },
   "peerDependencies": {
-    "mapbox-gl": ">= 2 < 3"
+    "mapbox-gl": ">= 2 < 4"
   }
 }
