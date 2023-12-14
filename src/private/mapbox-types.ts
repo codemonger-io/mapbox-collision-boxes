@@ -33,7 +33,7 @@ declare module 'mapbox-gl' {
     _serializedLayers: { [layerId: string]: StyleLayer };
     _availableImages: string[];
 
-    _getLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
+    getOwnLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
   }
 }
 
@@ -56,7 +56,9 @@ export interface CollisionIndex {
 
   projectAndGetPerspectiveRatio(
     posMatrix: mat4,
-    point: vec3,
+    x: number,
+    y: number,
+    z: number,
     tileID: OverscaledTileID | undefined | null,
     checkOcclusiion: boolean,
     bucketProjection: Projection,

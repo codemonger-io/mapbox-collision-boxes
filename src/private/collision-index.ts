@@ -15,7 +15,7 @@ import {
  *
  * This function mocks the collision box calculation of
  * `CollisionIndex#placeCollisionBox`.
- * https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L94-L143
+ * https://github.com/mapbox/mapbox-gl-js/blob/922da6dd02dbcc1ccd852cebba8b830a070d46ca/src/symbol/collision_index.js#L90-L140
  *
  * @beta
  */
@@ -36,21 +36,20 @@ export function calculateCollisionBox(
   let anchorY = box.projectedAnchorY;
   let anchorZ = box.projectedAnchorZ;
   const { elevation, tileID } = box;
+  const projection = bucket.getProjection()
   if (elevation && tileID) {
-    const up = bucket
-      .getProjection()
+    const [ux, uy, uz] = projection
       .upVector(tileID.canonical, box.tileAnchorX, box.tileAnchorY);
-    const upScale = bucket
-      .getProjection()
+    const upScale = projection
       .upVectorScale(
         tileID.canonical,
         collisionIndex.transform.center.lat,
         collisionIndex.transform.worldSize,
       )
       .metersToTile;
-    anchorX += up[0] * elevation * upScale;
-    anchorY += up[1] * elevation * upScale;
-    anchorZ += up[2] * elevation * upScale;
+    anchorX += ux * elevation * upScale;
+    anchorY += uy * elevation * upScale;
+    anchorZ += uz * elevation * upScale;
   }
   const checkOcclusion =
     bucket.projection.name === 'globe' ||
@@ -58,7 +57,9 @@ export function calculateCollisionBox(
     collisionIndex.transform.pitch > 0;
   const projectedPoint = collisionIndex.projectAndGetPerspectiveRatio(
     posMatrix,
-    [anchorX, anchorY, anchorZ],
+    anchorX,
+    anchorY,
+    anchorZ,
     box.tileID,
     checkOcclusion,
     bucket.getProjection(),

@@ -68,7 +68,7 @@ export async function collectCollisionBoxesAndFeatures(
     throw new RangeError(`layer "${layerId}" is not a symbol layer`);
   }
   await waitForPlacement(placement, PLACEMENT_TIMEOUT_IN_MS);
-  const sourceCache = style._getLayerSourceCache(layer);
+  const sourceCache = style.getOwnLayerSourceCache(layer);
   if (sourceCache == null) {
     throw new Error(`no SourceCache available`);
   }
