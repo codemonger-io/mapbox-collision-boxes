@@ -4,12 +4,12 @@
 
 ## boxesIntersect() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 > 
 
 Returns if two `Box`<!-- -->es intersect.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function boxesIntersect(box1: Box, box2: Box): boolean;
@@ -22,7 +22,7 @@ export declare function boxesIntersect(box1: Box, box2: Box): boolean;
 |  box1 | [Box](./mapbox-collision-boxes.box.md) | Box to be tested. |
 |  box2 | [Box](./mapbox-collision-boxes.box.md) | Another box to be tested. |
 
-<b>Returns:</b>
+**Returns:**
 
 boolean
 

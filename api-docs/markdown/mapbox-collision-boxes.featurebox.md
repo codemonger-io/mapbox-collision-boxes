@@ -4,12 +4,12 @@
 
 ## FeatureBox interface
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 > 
 
 Box with feature information.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface FeatureBox 
@@ -19,6 +19,6 @@ export interface FeatureBox
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [box](./mapbox-collision-boxes.featurebox.box.md) |  | [Box](./mapbox-collision-boxes.box.md) | <b><i>(BETA)</i></b> Box of the feature. |
-|  [feature](./mapbox-collision-boxes.featurebox.feature.md) |  | QueryFeature | <b><i>(BETA)</i></b> Feature. |
+|  [box](./mapbox-collision-boxes.featurebox.box.md) |  | [Box](./mapbox-collision-boxes.box.md) | **_(BETA)_** Box of the feature. |
+|  [feature](./mapbox-collision-boxes.featurebox.feature.md) |  | QueryFeature | **_(BETA)_** Feature. |
 

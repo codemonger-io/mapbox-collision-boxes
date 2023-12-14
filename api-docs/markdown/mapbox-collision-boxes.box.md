@@ -4,12 +4,12 @@
 
 ## Box interface
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 > 
 
 Box in the screen coordinate.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export interface Box 
@@ -19,8 +19,8 @@ export interface Box
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [brX](./mapbox-collision-boxes.box.brx.md) |  | number | <b><i>(BETA)</i></b> X-coordinate value of the bottom-right corner of the box. |
-|  [brY](./mapbox-collision-boxes.box.bry.md) |  | number | <b><i>(BETA)</i></b> Y-coordinate value of the bottom-right corner of the box. |
-|  [tlX](./mapbox-collision-boxes.box.tlx.md) |  | number | <b><i>(BETA)</i></b> X-coordinate value of the top-left corner of the box. |
-|  [tlY](./mapbox-collision-boxes.box.tly.md) |  | number | <b><i>(BETA)</i></b> Y-coordinate value of the top-left corner of the box. |
+|  [brX](./mapbox-collision-boxes.box.brx.md) |  | number | **_(BETA)_** X-coordinate value of the bottom-right corner of the box. |
+|  [brY](./mapbox-collision-boxes.box.bry.md) |  | number | **_(BETA)_** Y-coordinate value of the bottom-right corner of the box. |
+|  [tlX](./mapbox-collision-boxes.box.tlx.md) |  | number | **_(BETA)_** X-coordinate value of the top-left corner of the box. |
+|  [tlY](./mapbox-collision-boxes.box.tly.md) |  | number | **_(BETA)_** Y-coordinate value of the top-left corner of the box. |
 
