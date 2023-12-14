@@ -4,12 +4,12 @@
 
 ## collectCollisionBoxesAndFeatures() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 > 
 
 Collects collision boxes on a given Mapbox map layer.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 export declare function collectCollisionBoxesAndFeatures(map: Map, layerId: string): Promise<FeatureBox[]>;
@@ -22,7 +22,7 @@ export declare function collectCollisionBoxesAndFeatures(map: Map, layerId: stri
 |  map | Map | [Mapbox map](https://docs.mapbox.com/mapbox-gl-js/api/map/) instance. |
 |  layerId | string | ID of the layer where collision boxes are to be collected. |
 
-<b>Returns:</b>
+**Returns:**
 
 Promise&lt;[FeatureBox](./mapbox-collision-boxes.featurebox.md)<!-- -->\[\]&gt;
 

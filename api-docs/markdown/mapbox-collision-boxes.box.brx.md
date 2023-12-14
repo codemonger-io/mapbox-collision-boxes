@@ -4,12 +4,12 @@
 
 ## Box.brX property
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This API is provided as a beta preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 > 
 
 X-coordinate value of the bottom-right corner of the box.
 
-<b>Signature:</b>
+**Signature:**
 
 ```typescript
 brX: number;
