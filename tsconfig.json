@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
-    "target": "es2015",
+    "target": "es2018",
     "module": "esnext",
     "moduleResolution": "node",
-    "lib": ["es2015", "dom"],
+    "lib": ["es2018", "dom"],
     "strict": true,
     "outDir": "./dist",
     "sourceMap": true,
@@ -12,5 +12,5 @@
     "declarationDir": "./dist/dts"
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "examples"]
 }
