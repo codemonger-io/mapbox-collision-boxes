@@ -8,14 +8,14 @@ A utility library for [Mapbox GL JS (`mapbox-gl`)](https://docs.mapbox.com/mapbo
 
 ### Prerequisites
 
-This library is supposed to work with `mapbox-gl` version 2 or higher.
+This library is intended to work with `mapbox-gl` version 2.x and 3.x.
 
 ### How to install
 
 Please add this repository to your dependencies.
 
 ```sh
-npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.1.0
+npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.0
 ```
 
 ### Usage
@@ -64,8 +64,28 @@ Please refer to [`api-docs/markdown/index.md`](./api-docs/markdown/index.md).
 ### Viewport padding
 
 Collision boxes collected by [`collectCollisionBoxesAndFeatures`](./api-docs/markdown/mapbox-collision-boxes.collectcollisionboxesandfeatures.md) include constant offsets.
-They have the actual screen position + `100`\* along both the x- and y-axes.
+They have the actual screen position + `100`[^1] along both the x- and y-axes.
 Since the offsets do not matter to hit tests among collision boxes, this library leaves them to avoid unnecessary calculation.
 If you want to project collision boxes to the actual screen, you have to subtract `100` from their x- and y-axis values.
 
-\* This constant is defined as `viewportPadding` at https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 which is not exported from `mapbox-gl`.
+[^1]: This constant is defined as `viewportPadding` at https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 which is not exported from `mapbox-gl`.
+
+## Development
+
+### Resoving dependencies
+
+```sh
+npm ci
+```
+
+### Type-checking
+
+```sh
+npm run type-check
+```
+
+### Building the library
+
+```sh
+npm run build
+```

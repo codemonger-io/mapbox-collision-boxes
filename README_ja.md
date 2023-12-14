@@ -8,14 +8,14 @@ Mapboxマップ上の衝突ボックスを画面座標系で計算する、[Mapb
 
 ### 事前準備
 
-このライブラリは`mapbox-gl`バージョン2以降と一緒に使用する想定です。
+このライブラリは`mapbox-gl`バージョン2.xおよび3.xと一緒に使用する想定です。
 
 ### インストール方法
 
 このレポジトリを依存関係に追加してください。
 
 ```sh
-npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.1.0
+npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.0
 ```
 
 ### 使い方
@@ -53,7 +53,7 @@ const map.on('click', layerId, async event => {
 
 ということで**Mapboxマップ上で特定のシンボルと重なるシンボルを集めることのできるライブラリを開発**することにしました。
 
-より詳しくは[私のブログ投稿](https://codemonger.io/blog/0009-mapbox-collision-boxes/)をご覧ください。
+より詳しくは[私のブログ投稿](https://codemonger.io/ja/blog/0009-mapbox-collision-boxes/)をご覧ください。
 
 ## APIドキュメント
 
@@ -64,8 +64,28 @@ const map.on('click', layerId, async event => {
 ### ビューポートオフセット
 
 [`collectCollisionBoxesAndFeatures`](./api-docs/markdown/mapbox-collision-boxes.collectcollisionboxesandfeatures.md)が集める衝突ボックスは固定のオフセットを含んでいます。
-xとyの両軸について実際の画面位置 + `100`\*になっています。
+xとyの両軸について実際の画面位置 + `100`[^1]になっています。
 オフセットは衝突ボックス同士の衝突判定には影響しないため、このライブラリでは不必要な計算を避けるためにそのままにしてあります。
 衝突ボックスを実際の画面に投影したい場合は、xとy軸の値から`100`を引かなければなりません。
 
-\* この定数は`viewportPadding`として https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 に定義されていますが、`mapbox-gl`はエクスポートしていません。
+[^1]: この定数は`viewportPadding`として https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 に定義されていますが、`mapbox-gl`はエクスポートしていません。
+
+## 開発
+
+### 依存関係の解決
+
+```sh
+npm ci
+```
+
+### タイプチェック
+
+```sh
+npm run type-check
+```
+
+### ライブラリをビルドする
+
+```sh
+npm run build
+```
