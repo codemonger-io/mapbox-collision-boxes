@@ -9,7 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "mapbox-collision-boxes": "github:kikuomax/mapbox-collision-boxes#mapbox-gl-v3",
+    "mapbox-collision-boxes": "github:codemonger-io/mapbox-collision-boxes#v0.2.0",
     "mapbox-gl": "^3.0.1",
     "vue": "^3.3.11"
   },
