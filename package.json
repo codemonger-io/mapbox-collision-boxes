@@ -1,6 +1,6 @@
 {
   "name": "mapbox-collision-boxes",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Utility to handle Mapbox collision boxes",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
