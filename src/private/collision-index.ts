@@ -1,6 +1,7 @@
 import { mat4 } from 'gl-matrix';
 
 import { Box } from '../types';
+import type { MapboxGlVersion } from './mapbox-gl-version';
 import {
   Placement,
   SingleCollisionBox,
@@ -17,6 +18,10 @@ import {
  * `CollisionIndex#placeCollisionBox`.
  * https://github.com/mapbox/mapbox-gl-js/blob/922da6dd02dbcc1ccd852cebba8b830a070d46ca/src/symbol/collision_index.js#L90-L140
  *
+ * @param version
+ *
+ *   Version information of `mapbox-gl`.
+ *
  * @beta
  */
 export function calculateCollisionBox(
@@ -27,6 +32,7 @@ export function calculateCollisionBox(
   posMatrix: mat4,
   textPixelRatio: number,
   scale: number,
+  version: MapboxGlVersion,
 ): Box {
   // we assumes symbols do not have a text.
   // so `shift` is `(0, 0)`.
@@ -55,15 +61,23 @@ export function calculateCollisionBox(
     bucket.projection.name === 'globe' ||
     !!elevation ||
     collisionIndex.transform.pitch > 0;
-  const projectedPoint = collisionIndex.projectAndGetPerspectiveRatio(
-    posMatrix,
-    anchorX,
-    anchorY,
-    anchorZ,
-    box.tileID,
-    checkOcclusion,
-    bucket.getProjection(),
-  );
+  const projectedPoint = version.isLegacy
+    ? collisionIndex.projectAndGetPerspectiveRatio(
+      posMatrix,
+      [anchorX, anchorY, anchorZ],
+      box.tileID,
+      checkOcclusion,
+      bucket.getProjection(),
+    )
+    : collisionIndex.projectAndGetPerspectiveRatio(
+      posMatrix,
+      anchorX,
+      anchorY,
+      anchorZ,
+      box.tileID,
+      checkOcclusion,
+      bucket.getProjection(),
+    );
   const tileToViewport = textPixelRatio * projectedPoint.perspectiveRatio;
   const screenX = projectedPoint.point.x;
   const screenY = projectedPoint.point.y;
