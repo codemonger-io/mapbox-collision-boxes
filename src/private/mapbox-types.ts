@@ -22,6 +22,9 @@ declare module 'mapbox-gl' {
     // but it should not matter because this augmentation is private anyway
     style: Style;
     painter: Painter;
+
+    // v2.12.0 or later
+    _isDragging(): boolean;
   }
 
   interface Style {
@@ -33,6 +36,9 @@ declare module 'mapbox-gl' {
     _serializedLayers: { [layerId: string]: StyleLayer };
     _availableImages: string[];
 
+    // v2
+    _getLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
+    // v3
     getOwnLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
   }
 }
@@ -54,6 +60,15 @@ export interface Placement {
 export interface CollisionIndex {
   transform: Transform;
 
+  // v2.11.1 or earlier
+  projectAndGetPerspectiveRatio(
+    posMatrix: mat4,
+    point: vec3,
+    tileID: OverscaledTileID | undefined | null,
+    checkOcclusiion: boolean,
+    bucketProjection: Projection,
+  ): ScreenAnchorPoint;
+  // v2.12.0 or later
   projectAndGetPerspectiveRatio(
     posMatrix: mat4,
     x: number,
