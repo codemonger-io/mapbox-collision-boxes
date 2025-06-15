@@ -1,6 +1,6 @@
 {
   "name": "mapbox-collision-boxes",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Utility to handle Mapbox collision boxes",
   "packageManager": "pnpm@10.12.1",
   "main": "dist/index.js",
@@ -31,8 +31,6 @@
     "@microsoft/api-documenter": "^7.26.27",
     "@microsoft/api-extractor": "^7.52.8",
     "@rollup/plugin-typescript": "^12.1.2",
-    "@types/geojson": "catalog:",
-    "@types/mapbox-gl": "^2.7.21",
     "gl-matrix": "^3.4.3",
     "mapbox-gl": "catalog:",
     "rollup": "^4.43.0",

@@ -2,6 +2,5 @@ packages:
   - example
 
 catalog:
-  '@types/geojson': ^7946.0.16
-  mapbox-gl: 3.0.1
+  mapbox-gl: 3.7.0
   typescript: 5.8.3
