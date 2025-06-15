@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
-    "@types/geojson": "catalog:",
+    "@types/geojson": "7946.0.16",
     "@types/node": "^22.15.31",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/tsconfig": "^0.7.0",
