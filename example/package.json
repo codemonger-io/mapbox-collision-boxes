@@ -9,19 +9,19 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "mapbox-collision-boxes": "github:codemonger-io/mapbox-collision-boxes#v0.2.0",
-    "mapbox-gl": "^3.0.1",
+    "mapbox-collision-boxes": "workspace:*",
+    "mapbox-gl": "catalog:",
     "vue": "^3.3.11"
   },
   "devDependencies": {
     "@tsconfig/node22": "^22.0.2",
-    "@types/geojson": "^7946.0.13",
+    "@types/geojson": "catalog:",
     "@types/node": "^22.15.31",
     "@vitejs/plugin-vue": "^5.2.4",
     "@vue/tsconfig": "^0.7.0",
     "geojson": "^0.5.0",
     "npm-run-all2": "^8.0.4",
-    "typescript": "^5.8.3",
+    "typescript": "catalog:",
     "vite": "^6.3.5",
     "vue-tsc": "^2.2.10"
   }
