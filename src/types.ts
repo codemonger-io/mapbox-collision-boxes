@@ -1,4 +1,4 @@
-import { MapboxGeoJSONFeature } from 'mapbox-gl';
+import type { MapboxGeoJSONFeature } from 'mapbox-gl';
 
 /**
  * Box in the screen coordinate.

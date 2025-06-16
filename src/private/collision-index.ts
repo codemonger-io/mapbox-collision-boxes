@@ -1,8 +1,9 @@
-import { mat4 } from 'gl-matrix';
+import type { mat4 } from 'gl-matrix';
 
-import { Box } from '../types';
+import type { Box } from '../types';
 import type { MapboxGlVersion } from './mapbox-gl-version';
-import {
+import type {
+  CollisionIndex,
   Placement,
   SingleCollisionBox,
   SymbolBucket,

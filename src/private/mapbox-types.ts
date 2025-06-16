@@ -10,40 +10,18 @@
  * @beta
  */
 
-import { mat4, vec3 } from 'gl-matrix';
-import { LngLat, Map, Style } from 'mapbox-gl';
+import type { mat4, vec3 } from 'gl-matrix';
+import type { LngLat, Map } from 'mapbox-gl';
 
-import { SizeData } from './symbol-size';
-import { QueryFeature } from '../types';
-
-declare module 'mapbox-gl' {
-  interface Map {
-    // @rollup/plugin-typescript warns about the use of a private type `Style`,
-    // but it should not matter because this augmentation is private anyway
-    style: Style;
-    painter: Painter;
-
-    // v2.12.0 or later
-    _isDragging(): boolean;
-  }
-
-  interface Style {
-    placement: Placement;
-    _layers: { [layerId: string]: StyleLayer };
-    // a value of _serialiedLayers is `Object` in `mapbox-gl`
-    // but it is actually given to lookupSymbolFeatures where a `StyleLayer` is
-    // required.
-    _serializedLayers: { [layerId: string]: StyleLayer };
-    _availableImages: string[];
-
-    // v2
-    _getLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
-    // v3
-    getOwnLayerSourceCache(layer: StyleLayer): SourceCache | undefined;
-  }
-}
+import type { SizeData } from './symbol-size';
+import type { QueryFeature } from '../types';
 
 export const EXTENT = 8192;
+
+export type Style = Map['style'] & {
+  // v2
+  _getLayerSourceCache?: (layer: StyleLayer) => SourceCache | undefined;
+}
 
 export interface StyleLayer {
   type: string;
@@ -162,7 +140,7 @@ export interface Projection {
     tr: Transform,
     worldSize: number,
     id: UnwrappedTileID,
-  ): Float64Array;
+  ): mat4;
   upVector(id: CanonicalTileID, x: number, y: number): vec3;
   upVectorScale(id: CanonicalTileID, latitude: number, worldSize: number): EvaluationScale;
 }
@@ -172,8 +150,8 @@ export interface EvaluationScale {
 }
 
 export interface Transform {
-  // original type of `projMatrix` is `number[]`,
-  // but replacing it with `mat4` should not harm within this library.
+  // `projMatrix` is `mat4` since `mapbox-gl` v3.8.0
+  // should not harm the older versions of `mapbox-gl`
   projMatrix: mat4;
   projection: Projection;
   center: LngLat;

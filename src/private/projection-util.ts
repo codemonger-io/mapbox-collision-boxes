@@ -1,6 +1,6 @@
 import { mat4 } from 'gl-matrix';
 
-import { OverscaledTileID, Projection, Transform } from './mapbox-types';
+import type { OverscaledTileID, Projection, Transform } from './mapbox-types';
 
 /**
  * Mocks `getSymbolPlacementTileProjectionMatrix`.
@@ -25,7 +25,7 @@ export function getSymbolPlacementTileProjectionMatrix(
 }
 
 // mocks reconstructTileMatrix.
-// clone of https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/geo/projection/projection_util.js#L9-L15
+// clone of https://github.com/mapbox/mapbox-gl-js/blob/9d8f6b2731743c45f19ee8d9d0650e96ce3d3466/src/geo/projection/projection_util.ts#L9-L15
 function reconstructTileMatrix(
   transform: Transform,
   projection: Projection,
@@ -39,9 +39,6 @@ function reconstructTileMatrix(
   return mat4.multiply(
     new Float32Array(16),
     transform.projMatrix,
-    // `tileMatrix` is `Float64Array` while `multiply` requires `Float32Array`.
-    // forceful reinterpretation of `tileMatrix` should not be a problem
-    // because `mapbox-gl` implicitly does it.
-    (tileMatrix as unknown) as Float32Array,
+    tileMatrix,
   );
 }
