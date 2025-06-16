@@ -1,4 +1,4 @@
-import { Placement } from './mapbox-types';
+import type { Placement } from './mapbox-types';
 
 const POLLING_INTERVAL_IN_MS = 30;
 

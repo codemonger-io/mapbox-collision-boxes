@@ -7,10 +7,11 @@
  * @beta
  */
 
-import { Map } from 'mapbox-gl';
+import type { Map } from 'mapbox-gl';
 
 import { calculateCollisionBox } from './private/collision-index';
 import { getMapboxGlVersion } from './private/mapbox-gl-version';
+import type { Style } from './private/mapbox-types';
 import { EXTENT, isSymbolBucket } from './private/mapbox-types';
 import { waitForPlacement } from './private/placement';
 import {
@@ -18,7 +19,7 @@ import {
 } from './private/projection-util';
 import { evaluateSizeForZoom } from './private/symbol-size';
 import type { Box, FeatureBox } from './types';
-export { Box, FeatureBox } from './types';
+export type { Box, FeatureBox } from './types';
 
 // placement timeout in milliseconds.
 const PLACEMENT_TIMEOUT_IN_MS = 5000;
@@ -59,7 +60,7 @@ export async function collectCollisionBoxesAndFeatures(
   map: Map,
   layerId: string,
 ): Promise<FeatureBox[]> {
-  const style = map.style;
+  const style = map.style as Style;
   const version = getMapboxGlVersion(map);
   const placement = style.placement;
   const layer = style._layers[layerId];
@@ -69,10 +70,11 @@ export async function collectCollisionBoxesAndFeatures(
   if (layer.type !== 'symbol') {
     throw new RangeError(`layer "${layerId}" is not a symbol layer`);
   }
+  // @ts-expect-error - TS2345 - placement is incompatible with the type definition in mapbox-gl prior to v3.8.0
   await waitForPlacement(placement, PLACEMENT_TIMEOUT_IN_MS);
   const sourceCache = version.isV3
     ? style.getOwnLayerSourceCache(layer)
-    : style._getLayerSourceCache(layer);
+    : style._getLayerSourceCache!(layer);
   if (sourceCache == null) {
     throw new Error(`no SourceCache available`);
   }
@@ -94,6 +96,7 @@ export async function collectCollisionBoxesAndFeatures(
     const posMatrix = getSymbolPlacementTileProjectionMatrix(
       tile.tileID,
       bucket.getProjection(),
+      // @ts-expect-error - TS2345 - transform is incompatible with the type definition in mapbox-gl prior to v3.8.0
       placement.transform,
       placement.projection,
     );
@@ -114,6 +117,7 @@ export async function collectCollisionBoxesAndFeatures(
           i,
         );
         featureCollisionBoxes[featureIndex] = calculateCollisionBox(
+          // @ts-expect-error - TS2345 - placement is incompatible with the type definition in mapbox-gl prior to v3.8.0
           placement,
           tile,
           bucket,
@@ -131,8 +135,10 @@ export async function collectCollisionBoxesAndFeatures(
       style._serializedLayers,
       queryData.bucketIndex,
       queryData.sourceLayerIndex,
-      undefined, // filterSpec
-      undefined, // filterLayerIDs
+      // NOTE: contrary to the type definition, the following two parameters
+      // may be `undefined`
+      undefined as any, // filterSpec
+      undefined as any, // filterLayerIDs
       style._availableImages,
       style._layers,
     );
