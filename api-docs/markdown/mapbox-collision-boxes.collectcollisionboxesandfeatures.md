@@ -17,11 +17,55 @@ export declare function collectCollisionBoxesAndFeatures(map: Map, layerId: stri
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  map | Map | [Mapbox map](https://docs.mapbox.com/mapbox-gl-js/api/map/) instance. |
-|  layerId | string | ID of the layer where collision boxes are to be collected. |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+map
+
+
+</td><td>
+
+Map
+
+
+</td><td>
+
+[Mapbox map](https://docs.mapbox.com/mapbox-gl-js/api/map/) instance.
+
+
+</td></tr>
+<tr><td>
+
+layerId
+
+
+</td><td>
+
+string
+
+
+</td><td>
+
+ID of the layer where collision boxes are to be collected.
+
+
+</td></tr>
+</tbody></table>
 **Returns:**
 
 Promise&lt;[FeatureBox](./mapbox-collision-boxes.featurebox.md)<!-- -->\[\]&gt;

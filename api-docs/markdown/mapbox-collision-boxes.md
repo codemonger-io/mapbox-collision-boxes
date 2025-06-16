@@ -8,15 +8,74 @@ Collision box utility for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/gu
 
 ## Functions
 
-|  Function | Description |
-|  --- | --- |
-|  [boxesIntersect(box1, box2)](./mapbox-collision-boxes.boxesintersect.md) | **_(BETA)_** Returns if two <code>Box</code>es intersect. |
-|  [collectCollisionBoxesAndFeatures(map, layerId)](./mapbox-collision-boxes.collectcollisionboxesandfeatures.md) | **_(BETA)_** Collects collision boxes on a given Mapbox map layer. |
+<table><thead><tr><th>
+
+Function
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[boxesIntersect(box1, box2)](./mapbox-collision-boxes.boxesintersect.md)
+
+
+</td><td>
+
+**_(BETA)_** Returns if two `Box`<!-- -->es intersect.
+
+
+</td></tr>
+<tr><td>
+
+[collectCollisionBoxesAndFeatures(map, layerId)](./mapbox-collision-boxes.collectcollisionboxesandfeatures.md)
+
+
+</td><td>
+
+**_(BETA)_** Collects collision boxes on a given Mapbox map layer.
+
+
+</td></tr>
+</tbody></table>
 
 ## Interfaces
 
-|  Interface | Description |
-|  --- | --- |
-|  [Box](./mapbox-collision-boxes.box.md) | **_(BETA)_** Box in the screen coordinate. |
-|  [FeatureBox](./mapbox-collision-boxes.featurebox.md) | **_(BETA)_** Box with feature information. |
+<table><thead><tr><th>
 
+Interface
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[Box](./mapbox-collision-boxes.box.md)
+
+
+</td><td>
+
+**_(BETA)_** Box in the screen coordinate.
+
+
+</td></tr>
+<tr><td>
+
+[FeatureBox](./mapbox-collision-boxes.featurebox.md)
+
+
+</td><td>
+
+**_(BETA)_** Box with feature information.
+
+
+</td></tr>
+</tbody></table>

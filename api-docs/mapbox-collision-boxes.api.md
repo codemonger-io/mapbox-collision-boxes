@@ -4,8 +4,8 @@
 
 ```ts
 
-import { Map as Map_2 } from 'mapbox-gl';
-import { MapboxGeoJSONFeature } from 'mapbox-gl';
+import type { Map as Map_2 } from 'mapbox-gl';
+import type { MapboxGeoJSONFeature } from 'mapbox-gl';
 
 // @beta
 export interface Box {

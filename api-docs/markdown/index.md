@@ -6,7 +6,26 @@
 
 ## Packages
 
-|  Package | Description |
-|  --- | --- |
-|  [mapbox-collision-boxes](./mapbox-collision-boxes.md) | Collision box utility for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)<!-- -->. |
+<table><thead><tr><th>
 
+Package
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[mapbox-collision-boxes](./mapbox-collision-boxes.md)
+
+
+</td><td>
+
+Collision box utility for [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/guides/)<!-- -->.
+
+
+</td></tr>
+</tbody></table>
