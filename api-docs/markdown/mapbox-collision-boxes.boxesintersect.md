@@ -17,11 +17,55 @@ export declare function boxesIntersect(box1: Box, box2: Box): boolean;
 
 ## Parameters
 
-|  Parameter | Type | Description |
-|  --- | --- | --- |
-|  box1 | [Box](./mapbox-collision-boxes.box.md) | Box to be tested. |
-|  box2 | [Box](./mapbox-collision-boxes.box.md) | Another box to be tested. |
+<table><thead><tr><th>
 
+Parameter
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+box1
+
+
+</td><td>
+
+[Box](./mapbox-collision-boxes.box.md)
+
+
+</td><td>
+
+Box to be tested.
+
+
+</td></tr>
+<tr><td>
+
+box2
+
+
+</td><td>
+
+[Box](./mapbox-collision-boxes.box.md)
+
+
+</td><td>
+
+Another box to be tested.
+
+
+</td></tr>
+</tbody></table>
 **Returns:**
 
 boolean

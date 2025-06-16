@@ -17,8 +17,63 @@ export interface FeatureBox
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [box](./mapbox-collision-boxes.featurebox.box.md) |  | [Box](./mapbox-collision-boxes.box.md) | **_(BETA)_** Box of the feature. |
-|  [feature](./mapbox-collision-boxes.featurebox.feature.md) |  | QueryFeature | **_(BETA)_** Feature. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[box](./mapbox-collision-boxes.featurebox.box.md)
+
+
+</td><td>
+
+
+</td><td>
+
+[Box](./mapbox-collision-boxes.box.md)
+
+
+</td><td>
+
+**_(BETA)_** Box of the feature.
+
+
+</td></tr>
+<tr><td>
+
+[feature](./mapbox-collision-boxes.featurebox.feature.md)
+
+
+</td><td>
+
+
+</td><td>
+
+QueryFeature
+
+
+</td><td>
+
+**_(BETA)_** Feature.
+
+
+</td></tr>
+</tbody></table>

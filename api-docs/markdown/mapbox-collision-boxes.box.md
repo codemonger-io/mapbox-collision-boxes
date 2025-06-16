@@ -17,10 +17,101 @@ export interface Box
 
 ## Properties
 
-|  Property | Modifiers | Type | Description |
-|  --- | --- | --- | --- |
-|  [brX](./mapbox-collision-boxes.box.brx.md) |  | number | **_(BETA)_** X-coordinate value of the bottom-right corner of the box. |
-|  [brY](./mapbox-collision-boxes.box.bry.md) |  | number | **_(BETA)_** Y-coordinate value of the bottom-right corner of the box. |
-|  [tlX](./mapbox-collision-boxes.box.tlx.md) |  | number | **_(BETA)_** X-coordinate value of the top-left corner of the box. |
-|  [tlY](./mapbox-collision-boxes.box.tly.md) |  | number | **_(BETA)_** Y-coordinate value of the top-left corner of the box. |
+<table><thead><tr><th>
 
+Property
+
+
+</th><th>
+
+Modifiers
+
+
+</th><th>
+
+Type
+
+
+</th><th>
+
+Description
+
+
+</th></tr></thead>
+<tbody><tr><td>
+
+[brX](./mapbox-collision-boxes.box.brx.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+**_(BETA)_** X-coordinate value of the bottom-right corner of the box.
+
+
+</td></tr>
+<tr><td>
+
+[brY](./mapbox-collision-boxes.box.bry.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+**_(BETA)_** Y-coordinate value of the bottom-right corner of the box.
+
+
+</td></tr>
+<tr><td>
+
+[tlX](./mapbox-collision-boxes.box.tlx.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+**_(BETA)_** X-coordinate value of the top-left corner of the box.
+
+
+</td></tr>
+<tr><td>
+
+[tlY](./mapbox-collision-boxes.box.tly.md)
+
+
+</td><td>
+
+
+</td><td>
+
+number
+
+
+</td><td>
+
+**_(BETA)_** Y-coordinate value of the top-left corner of the box.
+
+
+</td></tr>
+</tbody></table>
