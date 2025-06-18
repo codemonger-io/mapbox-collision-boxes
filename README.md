@@ -15,7 +15,7 @@ This library is intended to work with `mapbox-gl` version 2.x and 3.x.
 Please add this repository to your dependencies.
 
 ```sh
-npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.0
+npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.1
 ```
 
 ### Usage
