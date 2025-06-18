@@ -19,6 +19,11 @@ import type { QueryFeature } from '../types';
 export const EXTENT = 8192;
 
 export type Style = Map['style'] & {
+  placement: Placement;
+
+  // v3.7.0 or earlier
+  _serializedLayers?: { [layerId: string]: StyleLayer };
+
   // v2
   _getLayerSourceCache?: (layer: StyleLayer) => SourceCache | undefined;
 }
@@ -27,11 +32,9 @@ export interface StyleLayer {
   type: string;
 }
 
-export interface Placement {
-  projection: string;
+export type Placement = Map['style']['placement'] & {
   transform: Transform;
   collisionIndex: CollisionIndex;
-  stale: boolean;
   retainedQueryData: {[bucketInstanceId: number]: RetainedQueryData};
 }
 
@@ -82,6 +85,7 @@ export interface SourceCache {
 }
 
 export interface FeatureIndex {
+  // v3.7.0 or earlier
   lookupSymbolFeatures(
     symbolFeatureIndexes: number[],
     serializedLayers: { [layerId: string]: StyleLayer },
@@ -95,6 +99,21 @@ export interface FeatureIndex {
     // original definition of `filterLayerIDs` is `string[]`,
     // but may be `undefined` or `null` in effect
     filterLayerIDs: string[] | undefined | null,
+    availableImages: string[],
+    styleLayers: { [layerId: string]: StyleLayer },
+  ): QueryResult
+  // v3.8.0 or later
+  lookupSymbolFeatures(
+    symbolFeatureIndexes: number[],
+    bucketIndex: number,
+    sourceLayerIndex: number,
+    // original definition of `filterSpec` is complicated `FilterSpecification`
+    // that I wanted to avoid to redefine.
+    // this should not matter to this library.
+    // may be `undefined` or `null` in effect
+    filterSpec: any,
+    // since v3.8.0, `filterLayerIDs` must not be `undefined` or `null`
+    filterLayerIDs: string[],
     availableImages: string[],
     styleLayers: { [layerId: string]: StyleLayer },
   ): QueryResult
