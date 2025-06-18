@@ -70,7 +70,6 @@ export async function collectCollisionBoxesAndFeatures(
   if (layer.type !== 'symbol') {
     throw new RangeError(`layer "${layerId}" is not a symbol layer`);
   }
-  // @ts-expect-error - TS2345 - placement is incompatible with the type definition in mapbox-gl prior to v3.8.0
   await waitForPlacement(placement, PLACEMENT_TIMEOUT_IN_MS);
   const sourceCache = version.isV3
     ? style.getOwnLayerSourceCache(layer)
@@ -96,7 +95,6 @@ export async function collectCollisionBoxesAndFeatures(
     const posMatrix = getSymbolPlacementTileProjectionMatrix(
       tile.tileID,
       bucket.getProjection(),
-      // @ts-expect-error - TS2345 - transform is incompatible with the type definition in mapbox-gl prior to v3.8.0
       placement.transform,
       placement.projection,
     );
@@ -117,7 +115,6 @@ export async function collectCollisionBoxesAndFeatures(
           i,
         );
         featureCollisionBoxes[featureIndex] = calculateCollisionBox(
-          // @ts-expect-error - TS2345 - placement is incompatible with the type definition in mapbox-gl prior to v3.8.0
           placement,
           tile,
           bucket,
@@ -130,18 +127,32 @@ export async function collectCollisionBoxesAndFeatures(
       }
     }
     const queryData = placement.retainedQueryData[bucket.bucketInstanceId];
-    const results = queryData.featureIndex.lookupSymbolFeatures(
-      featureIndexes,
-      style._serializedLayers,
-      queryData.bucketIndex,
-      queryData.sourceLayerIndex,
-      // NOTE: contrary to the type definition, the following two parameters
-      // may be `undefined`
-      undefined as any, // filterSpec
-      undefined as any, // filterLayerIDs
-      style._availableImages,
-      style._layers,
-    );
+    // in v3.8.0 or higher, style no longer has _serializedLayers,
+    // and lookupSymbolFeatures takes fewer parameters
+    const results = version.isV3_8
+      ? queryData.featureIndex.lookupSymbolFeatures(
+        featureIndexes,
+        queryData.bucketIndex,
+        queryData.sourceLayerIndex,
+        // NOTE: contrary to the type definition, the following parameter may
+        // be `undefined`
+        undefined as any, // filterSpec
+        [], // filterLayerIDs
+        style._availableImages,
+        style._layers,
+      )
+      : queryData.featureIndex.lookupSymbolFeatures(
+        featureIndexes,
+        style._serializedLayers!,
+        queryData.bucketIndex,
+        queryData.sourceLayerIndex,
+        // NOTE: contrary to the type definition, the following two parameters
+        // may be `undefined`
+        undefined as any, // filterSpec
+        undefined as any, // filterLayerIDs
+        style._availableImages,
+        style._layers,
+      );
     for (const layerResults of Object.values(results)) {
       for (const feature of layerResults) {
         collisionBoxesWithFeature.push({
