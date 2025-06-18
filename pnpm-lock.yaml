@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     mapbox-gl:
-      specifier: 3.7.0
-      version: 3.7.0
+      specifier: 3.8.0
+      version: 3.8.0
     typescript:
       specifier: 5.8.3
       version: 5.8.3
@@ -34,7 +34,7 @@ importers:
         version: 3.4.3
       mapbox-gl:
         specifier: 'catalog:'
-        version: 3.7.0
+        version: 3.8.0
       rollup:
         specifier: ^4.43.0
         version: 4.43.0
@@ -52,7 +52,7 @@ importers:
         version: link:..
       mapbox-gl:
         specifier: 'catalog:'
-        version: 3.7.0
+        version: 3.8.0
       vue:
         specifier: ^3.3.11
         version: 3.5.16(typescript@5.8.3)
@@ -723,8 +723,8 @@ packages:
   magic-string@0.30.17:
     resolution: {integrity: sha512-sNPKHvyjVf7gyjwS4xGTaW/mCnF8wnjtifKBEhxfZ7E/S8tQ0rssrwGNn6q8JH/ohItJfSQp9mBtQYuTlH5QnA==}
 
-  mapbox-gl@3.7.0:
-    resolution: {integrity: sha512-dCbVyH1uGobwv6f4QKRv2Z2wuVT/RmspsudK3sTxGRFxZi6Pd2P9axdbVyZpmGddCAREy44pHhvzvO0qgpdKAg==}
+  mapbox-gl@3.8.0:
+    resolution: {integrity: sha512-7iQ6wxAf8UedbNYTzNsyr2J25ozIBA4vmKY0xUDXQlHEokulzPENwjjmLxHQGRylDpOmR0c8kPEbtHCaQE2eMw==}
 
   memorystream@0.3.1:
     resolution: {integrity: sha512-S3UwM3yj5mtUSEfP41UZmt/0SCoVYUcU1rkXv+BQ5Ig8ndL4sPoJNBUJERafdPb5jjHJGuMgytgKvKIf58XNBw==}
@@ -1536,7 +1536,7 @@ snapshots:
     dependencies:
       '@jridgewell/sourcemap-codec': 1.5.0
 
-  mapbox-gl@3.7.0:
+  mapbox-gl@3.8.0:
     dependencies:
       '@mapbox/jsonlint-lines-primitives': 2.0.2
       '@mapbox/mapbox-gl-supported': 3.0.0

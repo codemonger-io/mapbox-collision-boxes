@@ -2,5 +2,5 @@ packages:
   - example
 
 catalog:
-  mapbox-gl: 3.7.0
+  mapbox-gl: 3.8.0
   typescript: 5.8.3
