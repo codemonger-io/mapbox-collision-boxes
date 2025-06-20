@@ -1,7 +1,7 @@
 import type { QrfQuery, SourceCache, Style, StyleLayer } from './mapbox-types';
 
 /**
- * Makes a default `QrfQuery`s for a given `StyleLayer`.
+ * Makes a default `QrfQuery` for a given `StyleLayer`.
  *
  * @remarks
  *
