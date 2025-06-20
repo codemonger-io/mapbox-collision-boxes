@@ -25,10 +25,23 @@ export interface MapboxGlVersion {
    * @remarks
    *
    * `true`: `FeatureIndex.lookupSymbolFeatures` takes 7 parameters.
+   * `isV3_9` preceeds.
    *
    * `false`: `FeatureIndex.lookupSymbolFeatures` takes 8 parameters.
    */
   readonly isV3_8: boolean;
+
+  /**
+   * Whether v3.9.0 or later.
+   *
+   * @remarks
+   *
+   * `true`: `FeatureIndex.lookupSymbolFeatures` takes `QrfQuery` instead of
+   * `filterSpec` and `filterLayerIDs`.
+   *
+   * `false`: see `isV3_8`.
+   */
+  readonly isV3_9: boolean;
 
   /**
    * Whether v2.11.1 or earlier.
@@ -50,6 +63,7 @@ export interface MapboxGlVersion {
 export function getMapboxGlVersion(map: Map): MapboxGlVersion {
   const isV3 = typeof map.style.getOwnLayerSourceCache !== 'undefined';
   const isV3_8 = typeof (map.style as Style)._serializedLayers === 'undefined';
+  const isV3_9 = typeof map.indoor !== 'undefined';
   const isLegacy = typeof map._isDragging === 'undefined';
-  return { isV3, isV3_8, isLegacy }
+  return { isV3, isV3_8, isV3_9, isLegacy }
 }
