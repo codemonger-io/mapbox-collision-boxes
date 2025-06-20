@@ -28,9 +28,10 @@ export type Style = Map['style'] & {
   _getLayerSourceCache?: (layer: StyleLayer) => SourceCache | undefined;
 }
 
-export interface StyleLayer {
-  type: string;
-}
+export type StyleLayer = Map['style']['_layers'][string] & {
+  // v3.11.0 or later may take a parameter
+  is3D(terrainEnabled?: boolean): boolean;
+};
 
 export type Placement = Map['style']['placement'] & {
   transform: Transform;
@@ -102,7 +103,7 @@ export interface FeatureIndex {
     availableImages: string[],
     styleLayers: { [layerId: string]: StyleLayer },
   ): QueryResult
-  // v3.8.0 or later
+  // v3.8.0
   lookupSymbolFeatures(
     symbolFeatureIndexes: number[],
     bucketIndex: number,
@@ -117,7 +118,29 @@ export interface FeatureIndex {
     availableImages: string[],
     styleLayers: { [layerId: string]: StyleLayer },
   ): QueryResult
+  // v3.9.0 or later
+  lookupSymbolFeatures(
+    symbolFeatureIndexes: number[],
+    bucketIndex: number,
+    sourceLayerIndex: number,
+    query: QrfQuery,
+    availableImages: string[],
+  ): QueryResult;
 }
+
+// https://github.com/mapbox/mapbox-gl-js/blob/ed45b275610423e6d3c4716b071cb8e25198a528/src/source/query_features.ts#L19-L22
+export type QrfQuery = {
+  layers: QrfLayers;
+  sourceCache: SourceCache;
+};
+
+// https://github.com/mapbox/mapbox-gl-js/blob/ed45b275610423e6d3c4716b071cb8e25198a528/src/source/query_features.ts#L27
+export type QrfLayers = Record<string, QrfLayer>;
+
+export type QrfLayer = {
+  targets?: unknown[]; // actual element type is `QrfTarget` but won't matter
+  styleLayer: StyleLayer; // actual type is `TypedStyleLayer` but won't matter
+};
 
 export type QueryResult = {
   [layerId: string]: ({

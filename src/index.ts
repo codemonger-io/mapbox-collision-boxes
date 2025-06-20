@@ -17,6 +17,7 @@ import { waitForPlacement } from './private/placement';
 import {
   getSymbolPlacementTileProjectionMatrix,
 } from './private/projection-util';
+import { makeQrfQueryForStyleLayer } from './private/qrf-query';
 import { evaluateSizeForZoom } from './private/symbol-size';
 import type { Box, FeatureBox } from './types';
 export type { Box, FeatureBox } from './types';
@@ -127,32 +128,42 @@ export async function collectCollisionBoxesAndFeatures(
       }
     }
     const queryData = placement.retainedQueryData[bucket.bucketInstanceId];
-    // in v3.8.0 or higher, style no longer has _serializedLayers,
-    // and lookupSymbolFeatures takes fewer parameters
-    const results = version.isV3_8
+    // in v3.9.0 or later, `lookupSymbolFeatures` takes `QrfQuery` instead of
+    // `filterSpec` and `filterLayerIDs`.
+    const results = version.isV3_9
       ? queryData.featureIndex.lookupSymbolFeatures(
         featureIndexes,
         queryData.bucketIndex,
         queryData.sourceLayerIndex,
-        // NOTE: contrary to the type definition, the following parameter may
-        // be `undefined`
-        undefined as any, // filterSpec
-        [], // filterLayerIDs
+        makeQrfQueryForStyleLayer(style, layer, sourceCache),
         style._availableImages,
-        style._layers,
       )
-      : queryData.featureIndex.lookupSymbolFeatures(
-        featureIndexes,
-        style._serializedLayers!,
-        queryData.bucketIndex,
-        queryData.sourceLayerIndex,
-        // NOTE: contrary to the type definition, the following two parameters
-        // may be `undefined`
-        undefined as any, // filterSpec
-        undefined as any, // filterLayerIDs
-        style._availableImages,
-        style._layers,
-      );
+      // in v3.8.0, style no longer has _serializedLayers,
+      // and `lookupSymbolFeatures` takes fewer parameters
+      : version.isV3_8
+        ? queryData.featureIndex.lookupSymbolFeatures(
+          featureIndexes,
+          queryData.bucketIndex,
+          queryData.sourceLayerIndex,
+          // NOTE: contrary to the type definition, the following parameter may
+          // be `undefined`
+          undefined as any, // filterSpec
+          [], // filterLayerIDs
+          style._availableImages,
+          style._layers,
+        )
+        : queryData.featureIndex.lookupSymbolFeatures(
+          featureIndexes,
+          style._serializedLayers!,
+          queryData.bucketIndex,
+          queryData.sourceLayerIndex,
+          // NOTE: contrary to the type definition, the following two parameters
+          // may be `undefined`
+          undefined as any, // filterSpec
+          undefined as any, // filterLayerIDs
+          style._availableImages,
+          style._layers,
+        );
     for (const layerResults of Object.values(results)) {
       for (const feature of layerResults) {
         collisionBoxesWithFeature.push({
