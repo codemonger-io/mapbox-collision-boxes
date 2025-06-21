@@ -9,6 +9,7 @@ A utility library for [Mapbox GL JS (`mapbox-gl`)](https://docs.mapbox.com/mapbo
 ### Prerequisites
 
 This library is intended to work with `mapbox-gl` version 2.x and 3.x.
+(I have not tested it with version newer than 3.13.0.)
 
 ### How to install
 
@@ -42,6 +43,11 @@ const map.on('click', layerId, async event => {
 ```
 
 You can find a complete project in the [`example`](./example) folder.
+
+### Remarks on type compatibility
+
+While this library supports both `mapbox-gl` version 2.x and 3.x, you may face a type error at the call of the `collectCollisionBoxesAndFeatures` function if your `mapbox-gl` version is different from the one (3.13.0) for which this library is built.
+Please ignore or suppress the type error in case you see it.
 
 ## Motivation
 
