@@ -19,6 +19,40 @@ Mapboxマップ上の衝突ボックスを画面座標系で計算する、[Mapb
 npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.3.0
 ```
 
+#### GitHub Packagesからインストールする
+
+`main`ブランチにコミットがプッシュされるたびに、*開発者用パッケージ*がGitHub Packagesが管理するnpmレジストリにパブリッシュされます。
+*開発者用パッケージ*のバージョンは次のリリースバージョンにハイフン(`-`)と短いコミットハッシュつなげたものになります。例、`0.3.0-abc1234` (`abc1234`はパッケージをビルドするのに使ったコミット(*スナップショット*)の短いコミットハッシュ)。
+*開発者用パッケージ*は[こちら](https://github.com/codemonger-io/mapbox-collision-boxes/pkgs/npm/mapbox-collision-boxes)にあります。
+
+##### GitHubパーソナルアクセストークンの設定
+
+*開発者用パッケージ*をインストールするには、最低限`read:packages`スコープの**クラシック**GitHubパーソナルアクセストークン(PAT)を設定する必要があります。
+以下、簡単にPATの設定方法を説明します。
+より詳しくは[GitHubのドキュメント](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry)をご参照ください。
+
+PATが手に入ったら以下の内容の`.npmrc`ファイルをホームディレクトリに作成してください。
+
+```
+//npm.pkg.github.com/:_authToken=$YOUR_GITHUB_PAT
+```
+
+`$YOUR_GITHUB_PAT`はご自身のPATに置き換えてください。
+
+プロジェクトのルートディレクトリには以下の内容の`.npmrc`ファイルを作成してください。
+
+```
+@codemonger-io:registry=https://npm.pkg.github.com
+```
+
+これで以下のコマンドで*開発者用パッケージ*をインストールできます。
+
+```sh
+npm install @codemonger-io/mapbox-collision-boxes@0.3.0-abc1234
+```
+
+`abc1234`はインストールしたい*スナップショット*の短いコミットハッシュに置き換えてください。
+
 ### 使い方
 
 以下のスニペットはクリックしたシンボルに画面上で隠されているFeatureを集めてくる例です。

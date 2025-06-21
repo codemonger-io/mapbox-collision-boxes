@@ -19,6 +19,40 @@ Please add this repository to your dependencies.
 npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.3.0
 ```
 
+#### Installing from GitHub Packages
+
+Whenever commits are pushed to the `main` branch, a _developer package_ is published to the npm registry managed by GitHub Packages.
+A _developer package_ bears the next release version but followed by a dash (`-`) plus the short commit hash; e.g., `0.3.0-abc1234` where `abc1234` is the short commit hash of the commit used to build the package (_snapshot_).
+You can find _developer packages_ [here](https://github.com/codemonger-io/mapbox-collision-boxes/pkgs/npm/mapbox-collision-boxes).
+
+##### Configuring a GitHub personal access token
+
+To install a _developer package_, you need to configure a **classic** GitHub personal access token (PAT) with at least the `read:packages` scope.
+Below briefly explains how to configure a PAT.
+Please refer to the [GitHub documentation](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry) for more details.
+
+Once you have a PAT, please create a `.npmrc` file in your home directory with the following contents:
+
+```
+//npm.pkg.github.com/:_authToken=$YOUR_GITHUB_PAT
+```
+
+Please replace `$YOUR_GITHUB_PAT` with your PAT.
+
+In the root directory of your project, create another `.npmrc` file with the following contents:
+
+```
+@codemonger-io:registry=https://npm.pkg.github.com
+```
+
+Then you can install a _developer package_ with the following command:
+
+```sh
+npm install @codemonger-io/mapbox-collision-boxes@0.3.0-abc1234
+```
+
+Please replace `abc1234` with the short commit hash of the _snapshot_ you want to install.
+
 ### Usage
 
 The following snippet is an example to collect features hidden by a clicked symbol on the screen.
