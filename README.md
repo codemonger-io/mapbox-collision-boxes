@@ -16,7 +16,7 @@ This library is intended to work with `mapbox-gl` version 2.x and 3.x.
 Please add this repository to your dependencies.
 
 ```sh
-npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.1
+npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.3.0
 ```
 
 ### Usage
@@ -25,7 +25,7 @@ The following snippet is an example to collect features hidden by a clicked symb
 
 ```ts
 import mapboxgl from 'mapbox-gl';
-import { boxesIntersect, collectCollisionBoxesAndFeatures } from 'mapbox-collision-boxes';
+import { boxesIntersect, collectCollisionBoxesAndFeatures } from '@codemonger-io/mapbox-collision-boxes';
 
 const map = new mapboxgl.Map(
     // ... initialize map
