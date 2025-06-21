@@ -19,7 +19,7 @@ Description
 </th></tr></thead>
 <tbody><tr><td>
 
-[mapbox-collision-boxes](./mapbox-collision-boxes.md)
+[@codemonger-io/mapbox-collision-boxes](./mapbox-collision-boxes.md)
 
 
 </td><td>
