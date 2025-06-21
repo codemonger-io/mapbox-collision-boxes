@@ -16,7 +16,7 @@ Mapboxマップ上の衝突ボックスを画面座標系で計算する、[Mapb
 このレポジトリを依存関係に追加してください。
 
 ```sh
-npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.1
+npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.3.0
 ```
 
 ### 使い方
@@ -25,7 +25,7 @@ npm install https://github.com/codemonger-io/mapbox-collision-boxes#v0.2.1
 
 ```ts
 import mapboxgl from 'mapbox-gl';
-import { boxesIntersect, collectCollisionBoxesAndFeatures } from 'mapbox-collision-boxes';
+import { boxesIntersect, collectCollisionBoxesAndFeatures } from '@codemonger-io/mapbox-collision-boxes';
 
 const map = new mapboxgl.Map(
     // ... マップの初期化
