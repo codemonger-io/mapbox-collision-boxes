@@ -3,9 +3,10 @@
  *
  * @remarks
  *
- * Conforms to `mapbox-gl` v2.9.2.
- *
- * Includes only minimal definitions necessary to implement this library.
+ * All the material in this file are derived from the source code of
+ * `mapbox-gl`, including only minimal definitions necessary to implement this
+ * library. Be aware of the Mapbox Web SDK license:
+ * https://github.com/mapbox/mapbox-gl-js?tab=readme-ov-file#license
  *
  * @beta
  */

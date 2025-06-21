@@ -1,3 +1,15 @@
+/**
+ * Utilities for `QrfQuery`.
+ *
+ * @remarks
+ *
+ * All the code in this file is a modified copy of the source code of
+ * `mapbox-gl`. Be aware of the Mapbox Web SDK license:
+ * https://github.com/mapbox/mapbox-gl-js?tab=readme-ov-file#license
+ *
+ * @beta
+ */
+
 import type { QrfQuery, SourceCache, Style, StyleLayer } from './mapbox-types';
 
 /**
