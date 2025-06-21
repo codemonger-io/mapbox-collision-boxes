@@ -33,13 +33,13 @@ export const MAPBOX_ACCESS_TOKEN = '<Your Mapbox Access Token Here>';
 ### 依存関係を解決する
 
 ```sh
-npm install
+pnpm install --frozen-lockfile
 ```
 
 ### 開発サーバーでサンプルを動かす
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 開発サーバーは http://localhost:5173 でホストされます。

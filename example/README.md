@@ -33,13 +33,13 @@ Please replace `<Your Mapbox Access Token Here>` with your Mapbox access token.
 ### Resolving dependencies
 
 ```sh
-npm install
+pnpm install --frozen-lockfile
 ```
 
 ### Running the example on a dev server
 
 ```sh
-npm run dev
+pnpm dev
 ```
 
 A dev server will be hosted on http://localhost:5173.
