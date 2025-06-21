@@ -15,10 +15,10 @@
     "README_ja.md"
   ],
   "scripts": {
-    "build": "rollup -c && api-extractor run --local",
-    "build:doc": "npm run build && api-documenter markdown --input-folder temp --output-folder api-docs/markdown",
+    "build": "rimraf dist && rollup -c && api-extractor run --local",
+    "build:doc": "run-s build && api-documenter markdown --input-folder temp --output-folder api-docs/markdown",
     "type-check": "tsc --noEmit",
-    "prepare": "npm run build",
+    "prepare": "run-s build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -33,6 +33,8 @@
     "@rollup/plugin-typescript": "^12.1.2",
     "gl-matrix": "^3.4.3",
     "mapbox-gl": "catalog:",
+    "npm-run-all2": "catalog:",
+    "rimraf": "^6.0.1",
     "rollup": "^4.43.0",
     "tslib": "^2.8.1",
     "typescript": "catalog:"

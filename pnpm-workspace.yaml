@@ -3,4 +3,5 @@ packages:
 
 catalog:
   mapbox-gl: 3.13.0
+  npm-run-all2: ^8.0.4
   typescript: 5.8.3
