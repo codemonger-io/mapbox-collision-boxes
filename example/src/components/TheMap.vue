@@ -17,7 +17,7 @@ import {
   type FeatureBox,
   boxesIntersect,
   collectCollisionBoxesAndFeatures,
-} from 'mapbox-collision-boxes';
+} from '@codemonger-io/mapbox-collision-boxes';
 
 import { MAPBOX_ACCESS_TOKEN } from '../mapbox-config';
 import catPng from '../assets/cat.png';

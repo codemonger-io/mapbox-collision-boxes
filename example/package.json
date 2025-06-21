@@ -9,7 +9,7 @@
     "type-check": "vue-tsc --noEmit"
   },
   "dependencies": {
-    "mapbox-collision-boxes": "workspace:*",
+    "@codemonger-io/mapbox-collision-boxes": "workspace:*",
     "mapbox-gl": "catalog:",
     "vue": "^3.3.11"
   },
