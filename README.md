@@ -76,22 +76,28 @@ If you want to project collision boxes to the actual screen, you have to subtrac
 
 [^1]: This constant is defined as `viewportPadding` at https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 which is not exported from `mapbox-gl`.
 
+## License
+
+Since this library borrows the code from `mapbox-gl`, the [Mapbox Web SDK license](https://github.com/mapbox/mapbox-gl-js?tab=readme-ov-file#license) should be applied.
+In a nutshell, you can use this library as long as you use it with the relevant Mapbox product(s) and comply with the Mapbox TOS.
+Anyway, I am not a lawyer, please use and modify this library **AT YOUR OWN RISK**.
+
 ## Development
 
 ### Resoving dependencies
 
 ```sh
-npm ci
+pnpm install --frozen-lockfile
 ```
 
 ### Type-checking
 
 ```sh
-npm run type-check
+pnpm type-check
 ```
 
 ### Building the library
 
 ```sh
-npm run build
+pnpm build
 ```
