@@ -47,7 +47,7 @@ importers:
 
   example:
     dependencies:
-      mapbox-collision-boxes:
+      '@codemonger-io/mapbox-collision-boxes':
         specifier: workspace:*
         version: link:..
       mapbox-gl:
