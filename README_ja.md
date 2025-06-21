@@ -76,22 +76,28 @@ xとyの両軸について実際の画面位置 + `100`[^1]になっています
 
 [^1]: この定数は`viewportPadding`として https://github.com/mapbox/mapbox-gl-js/blob/e29e113ff5e1f4c073f84b8cbe546006d2fb604f/src/symbol/collision_index.js#L50 に定義されていますが、`mapbox-gl`はエクスポートしていません。
 
+## ライセンス
+
+このライブラリは`mapbox-gl`からコードを拝借しているので、[Mapbox Web SDKライセンス](https://github.com/mapbox/mapbox-gl-js?tab=readme-ov-file#license)が適用されるはずです。
+簡単に言うと、Mapbox TOSに従って適切なMapbox製品と組み合わせている限り使用することができます。
+とはいえ私は法律の専門家ではないので、**皆さん自身の責任で**このライブラリをご使用ください。
+
 ## 開発
 
 ### 依存関係の解決
 
 ```sh
-npm ci
+pnpm install --frozen-lockfile
 ```
 
 ### タイプチェック
 
 ```sh
-npm run type-check
+pnpm type-check
 ```
 
 ### ライブラリをビルドする
 
 ```sh
-npm run build
+pnpm build
 ```
