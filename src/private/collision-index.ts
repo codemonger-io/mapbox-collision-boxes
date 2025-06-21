@@ -1,3 +1,15 @@
+/**
+ * Mocks `CollisionIndex`.
+ *
+ * @remarks
+ *
+ * All the code in this file is a modified copy of the source code of
+ * `mapbox-gl`. Be aware of the Mapbox Web SDK license:
+ * https://github.com/mapbox/mapbox-gl-js?tab=readme-ov-file#license
+ *
+ * @beta
+ */
+
 import type { mat4 } from 'gl-matrix';
 
 import type { Box } from '../types';
