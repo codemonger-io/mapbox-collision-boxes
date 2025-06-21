@@ -1,6 +1,6 @@
 {
-  "name": "mapbox-collision-boxes",
-  "version": "0.2.1",
+  "name": "@codemonger-io/mapbox-collision-boxes",
+  "version": "0.3.0",
   "description": "Utility to handle Mapbox collision boxes",
   "packageManager": "pnpm@10.12.1",
   "main": "dist/index.js",
