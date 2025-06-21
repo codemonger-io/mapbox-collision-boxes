@@ -18,7 +18,9 @@ import type { QueryFeature } from '../types';
 
 export const EXTENT = 8192;
 
-export type Style = Map['style'] & {
+type MapboxStyle = Map['style'];
+
+export type Style = MapboxStyle & {
   placement: Placement;
 
   // v3.7.0 or earlier
@@ -28,12 +30,17 @@ export type Style = Map['style'] & {
   _getLayerSourceCache?: (layer: StyleLayer) => SourceCache | undefined;
 }
 
-export type StyleLayer = Map['style']['_layers'][string] & {
+// there is no `ImageId` but `string` in v3.10.0 or earlier,
+// however actual type of `ImageId` won't matter,
+// because it is a placeholder to suppress type errors
+export type ImageId = Style['_availableImages'][number];
+
+export type StyleLayer = MapboxStyle['_layers'][string] & {
   // v3.11.0 or later may take a parameter
   is3D(terrainEnabled?: boolean): boolean;
 };
 
-export type Placement = Map['style']['placement'] & {
+export type Placement = MapboxStyle['placement'] & {
   transform: Transform;
   collisionIndex: CollisionIndex;
   retainedQueryData: {[bucketInstanceId: number]: RetainedQueryData};
@@ -100,7 +107,7 @@ export interface FeatureIndex {
     // original definition of `filterLayerIDs` is `string[]`,
     // but may be `undefined` or `null` in effect
     filterLayerIDs: string[] | undefined | null,
-    availableImages: string[],
+    availableImages: ImageId[],
     styleLayers: { [layerId: string]: StyleLayer },
   ): QueryResult
   // v3.8.0
@@ -115,7 +122,7 @@ export interface FeatureIndex {
     filterSpec: any,
     // since v3.8.0, `filterLayerIDs` must not be `undefined` or `null`
     filterLayerIDs: string[],
-    availableImages: string[],
+    availableImages: ImageId[],
     styleLayers: { [layerId: string]: StyleLayer },
   ): QueryResult
   // v3.9.0 or later
@@ -124,7 +131,7 @@ export interface FeatureIndex {
     bucketIndex: number,
     sourceLayerIndex: number,
     query: QrfQuery,
-    availableImages: string[],
+    availableImages: ImageId[],
   ): QueryResult;
 }
 
